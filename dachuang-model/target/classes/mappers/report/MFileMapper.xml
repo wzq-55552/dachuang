@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wzq.da.chuang.model.mappers.report.MFileMapper">
+  <resultMap id="BaseResultMap" type="com.wzq.da.chuang.model.pojos.report.MFile">
+    <!--@mbg.generated generated on Wed Apr 08 23:54:55 CST 2020.-->
+    <!--@Table m_file-->
+    <id column="f_id" jdbcType="BIGINT" property="fId" />
+    <result column="f_url" jdbcType="VARCHAR" property="fUrl" />
+    <result column="f_name" jdbcType="VARCHAR" property="fName" />
+    <result column="f_type" jdbcType="VARCHAR" property="fType" />
+    <result column="report_id" jdbcType="BIGINT" property="reportId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated generated on Wed Apr 08 23:54:55 CST 2020.-->
+    f_id, f_url, f_name, f_type, report_id
+  </sql>
+</mapper>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wzq.da.chuang.model.mappers.report.MReportMapper">
+  <resultMap id="BaseResultMap" type="com.wzq.da.chuang.model.pojos.report.MReport">
+    <!--@mbg.generated generated on Wed Apr 08 23:54:55 CST 2020.-->
+    <!--@Table m_report-->
+    <id column="report_id" jdbcType="BIGINT" property="reportId" />
+    <result column="user_id" jdbcType="VARCHAR" property="userId" />
+    <result column="content" jdbcType="VARCHAR" property="content" />
+    <result column="project_id" jdbcType="BIGINT" property="projectId" />
+    <result column="t_comment" jdbcType="VARCHAR" property="tComment" />
+    <result column="t_approval" jdbcType="INTEGER" property="tApproval" />
+    <result column="c_comment" jdbcType="VARCHAR" property="cComment" />
+    <result column="c_approval" jdbcType="INTEGER" property="cApproval" />
+    <result column="expert" jdbcType="VARCHAR" property="expert" />
+    <result column="s_comment" jdbcType="VARCHAR" property="sComment" />
+    <result column="s_approval" jdbcType="INTEGER" property="sApproval" />
+    <result column="e_comment" jdbcType="VARCHAR" property="eComment" />
+    <result column="e_approval" jdbcType="INTEGER" property="eApproval" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated generated on Wed Apr 08 23:54:55 CST 2020.-->
+    report_id, user_id, content, project_id, t_comment, t_approval, c_comment, c_approval, 
+    expert, s_comment, s_approval, e_comment, e_approval
+  </sql>
+</mapper>

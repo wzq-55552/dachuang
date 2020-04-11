@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wzq.da.chuang.model.mappers.user.IdentityMapper">
+  <resultMap id="BaseResultMap" type="com.wzq.da.chuang.model.pojos.user.Identity">
+    <!--@mbg.generated generated on Tue Apr 07 16:01:10 CST 2020.-->
+    <!--@Table identity-->
+    <id column="identity_id" jdbcType="VARCHAR" property="identityId" />
+    <result column="description" jdbcType="VARCHAR" property="description" />
+    <result column="identity_name" jdbcType="VARCHAR" property="identityName" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated generated on Tue Apr 07 16:01:10 CST 2020.-->
+    identity_id, description, identity_name
+  </sql>
+</mapper>
