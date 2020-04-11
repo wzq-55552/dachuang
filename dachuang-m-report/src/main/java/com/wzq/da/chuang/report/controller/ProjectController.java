@@ -1,0 +1,47 @@
+package com.wzq.da.chuang.report.controller;
+
+import com.wzq.da.chuang.commons.dto.ResponseResult;
+import com.wzq.da.chuang.model.dto.report.ReportInsertParam;
+import com.wzq.da.chuang.model.pojos.report.Project;
+import com.wzq.da.chuang.report.service.ProjectService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import javax.annotation.Resource;
+import java.util.List;
+
+@RestController
+@CrossOrigin(origins = "*", maxAge = 3600)
+@RequestMapping("/project")
+@Api(tags = "大创项目controller")
+public class ProjectController {
+
+    @Resource
+    private ProjectService projectService;
+
+    /**
+     * 查看自己对应的项目
+     * @param userId
+     * @return
+     */
+    @GetMapping("/select/{userId}")
+    @ApiOperation(value = "查看自己对应的项目，不同角色看到的不同，userId在路径上")
+    @PreAuthorize("isAuthenticated()") // 不用权限，请求头还是得有token
+    public ResponseResult<List<Project>> selectByUserId(@PathVariable("userId") String userId){
+        if (!StringUtils.isEmpty(userId)){
+            List<Project> projects = projectService.selectSelfProject(userId);
+            return new ResponseResult<List<Project>>(ResponseResult.CodeStatus.OK,"获取项目信息成功",projects);
+        }
+        return new ResponseResult<List<Project>>(ResponseResult.CodeStatus.FAIL,"参数为空",null);
+    }
+
+}

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wzq.da.chuang.model.mappers.report.ProjectMapper">
+  <resultMap id="BaseResultMap" type="com.wzq.da.chuang.model.pojos.report.Project">
+    <!--@mbg.generated generated on Wed Apr 08 23:54:55 CST 2020.-->
+    <!--@Table project-->
+    <id column="project_id" jdbcType="BIGINT" property="projectId" />
+    <result column="user_id" jdbcType="VARCHAR" property="userId" />
+    <result column="one_id" jdbcType="VARCHAR" property="oneId" />
+    <result column="two_id" jdbcType="VARCHAR" property="twoId" />
+    <result column="grade" jdbcType="INTEGER" property="grade" />
+    <result column="project_name" jdbcType="VARCHAR" property="projectName" />
+    <result column="collegeId" jdbcType="BIGINT" property="collegeId" />
+    <result column="s_report" jdbcType="TINYINT" property="sReport" />
+    <result column="m_report" jdbcType="TINYINT" property="mReport" />
+    <result column="f_report" jdbcType="TINYINT" property="fReport" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated generated on Wed Apr 08 23:54:55 CST 2020.-->
+    project_id, user_id, one_id, two_id, grade, project_name, collegeId, s_report, m_report,
+    f_report
+  </sql>
+</mapper>

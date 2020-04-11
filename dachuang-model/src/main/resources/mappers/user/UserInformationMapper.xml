@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wzq.da.chuang.model.mappers.user.UserInformationMapper">
+  <resultMap id="BaseResultMap" type="com.wzq.da.chuang.model.pojos.user.UserInformation">
+    <!--@mbg.generated generated on Tue Apr 07 16:01:10 CST 2020.-->
+    <!--@Table user-->
+    <id column="user_id" jdbcType="VARCHAR" property="userId" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="identity_id" jdbcType="VARCHAR" property="identityId" />
+    <result column="collegeId" jdbcType="BIGINT" property="collegeId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated generated on Tue Apr 07 16:01:10 CST 2020.-->
+    user_id, `password`, user_name, phone, identity_id, collegeId
+  </sql>
+</mapper>

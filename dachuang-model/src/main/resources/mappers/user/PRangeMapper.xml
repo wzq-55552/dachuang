@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wzq.da.chuang.model.mappers.user.PRangeMapper">
+  <resultMap id="BaseResultMap" type="com.wzq.da.chuang.model.pojos.user.PRange">
+    <!--@mbg.generated generated on Tue Apr 07 15:58:36 CST 2020.-->
+    <!--@Table p_range-->
+    <id column="identity_id" jdbcType="VARCHAR" property="identityId" />
+    <id column="p_id" jdbcType="VARCHAR" property="pId" />
+  </resultMap>
+</mapper>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/dachuang.iml" filepath="$PROJECT_DIR$/dachuang.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dachuang-commons/dachuang-commons.iml" filepath="$PROJECT_DIR$/dachuang-commons/dachuang-commons.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dachuang-dependencies/dachuang-dependencies.iml" filepath="$PROJECT_DIR$/dachuang-dependencies/dachuang-dependencies.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dachuang-file/dachuang-file.iml" filepath="$PROJECT_DIR$/dachuang-file/dachuang-file.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dachuang-m-report/dachuang-m-report.iml" filepath="$PROJECT_DIR$/dachuang-m-report/dachuang-m-report.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dachuang-model/dachuang-model.iml" filepath="$PROJECT_DIR$/dachuang-model/dachuang-model.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dachuang-security/dachuang-security.iml" filepath="$PROJECT_DIR$/dachuang-security/dachuang-security.iml" />
+    </modules>
+  </component>
+</project>

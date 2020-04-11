@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wzq.da.chuang.model.mappers.user.CollegeMapper">
+  <resultMap id="BaseResultMap" type="com.wzq.da.chuang.model.pojos.user.College">
+    <!--@mbg.generated generated on Thu Apr 09 16:28:30 CST 2020.-->
+    <!--@Table college-->
+    <id column="collegeId" jdbcType="BIGINT" property="collegeId" />
+    <result column="collegeName" jdbcType="VARCHAR" property="collegeName" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated generated on Thu Apr 09 16:28:30 CST 2020.-->
+    collegeId, collegeName
+  </sql>
+</mapper>
