@@ -18,4 +18,9 @@ public class CollegeServiceImpl implements CollegeService{
     public List<College> selectAll() {
         return collegeMapper.selectAll();
     }
+
+    @Override
+    public College selectByPrimaryKey(Long id) {
+        return collegeMapper.selectByPrimaryKey(id);
+    }
 }

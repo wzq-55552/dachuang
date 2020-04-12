@@ -26,12 +26,12 @@ public class AdminApprovalParam implements Serializable {
      * 大创管理评语
      */
     @ApiModelProperty(value = "大创管理评语",required = false)
-    private String sComment;
+    private String comment;
 
     /**
      * 大创管理认可，未审核0，通过2，退回修改3
      */
     @ApiModelProperty(value = "大创管理认可，未审核0，通过2，退回修改3",required = true)
-    private Integer sApproval;
+    private Integer approval;
 
 }

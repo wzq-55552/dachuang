@@ -5,6 +5,11 @@ spring:
   application:
     name: file9002
 
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 200MB
+
 # 分布式文件系统fastdfs配置
 fdfs:
   # socket连接超时时长

@@ -26,12 +26,12 @@ public class ExpertApprovalParam implements Serializable {
      * 评审专家评语语
      */
     @ApiModelProperty(value = "评审专家评语",required = false)
-    private String eComment;
+    private String comment;
 
     /**
      * 评审专家认可，未审核0，不通过1，通过2，暂缓通过3
      */
     @ApiModelProperty(value = "评审专家认可，未审核0，不通过1，通过2，暂缓通过3",required = true)
-    private Integer eApproval;
+    private Integer approval;
 
 }

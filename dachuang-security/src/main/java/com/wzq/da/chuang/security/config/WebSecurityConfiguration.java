@@ -44,7 +44,8 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
         web.ignoring().antMatchers("/oauth/check_token")
                 .antMatchers("/oauth/login")
                 .antMatchers("/oauth/refresh/token")
-                .antMatchers("/createImg/**");
+                .antMatchers("/createImg/**")
+                .antMatchers("/oauth/logout");
     }
 
     //自己实现用户权限认证，绑定数据库

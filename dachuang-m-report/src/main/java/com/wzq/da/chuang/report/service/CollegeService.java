@@ -8,4 +8,6 @@ public interface CollegeService{
 
     List<College> selectAll();
 
+    College selectByPrimaryKey(Long id);
+
 }

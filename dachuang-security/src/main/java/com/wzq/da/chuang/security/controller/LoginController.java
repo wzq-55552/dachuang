@@ -120,7 +120,7 @@ public class LoginController {
             AuthToken authToken = authService.refreshToken(token.get("refreshToken"), clientId, clientSecret);
             //存到数据库中，下次登录一样的token
 
-            return new ResponseResult<Void>(ResponseResult.CodeStatus.OK,"刷新令牌成功");
+            return new ResponseResult<Void>(ResponseResult.CodeStatus.OK,"退出登录,刷新令牌成功");
         }
         return new ResponseResult<Void>(ResponseResult.CodeStatus.FAIL,"服务器内容错误");
     }

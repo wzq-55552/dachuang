@@ -23,4 +23,49 @@
     report_id, user_id, content, project_id, t_comment, t_approval, c_comment, c_approval, 
     expert, s_comment, s_approval, e_comment, e_approval
   </sql>
+
+  <select id="selectByThree" resultType="com.wzq.da.chuang.model.pojos.report.MReport">
+    select
+    distinct r.report_id,r.user_id,r.content,r.project_id,r.t_comment,r.t_approval,r.c_comment,r.c_approval,
+    r.expert,r.s_comment,r.s_approval,r.e_comment,r.e_approval
+    from m_report r,project p,user s,user t,user e
+    where
+    true
+    <if test="reportSelectParam.reportId!=null">
+      and r.report_id=#{reportSelectParam.reportId}
+    </if>
+
+    <if test="reportSelectParam.projectId!=null">
+      and r.project_id=#{reportSelectParam.projectId}
+    </if>
+
+    <if test="reportSelectParam.userId!=null and reportSelectParam.userId!=''">
+      and r.user_id like CONCAT ('%',#{reportSelectParam.userId},'%')
+    </if>
+
+    <if test="reportSelectParam.expert!=null and reportSelectParam.expert!=''">
+      and r.expert like CONCAT ('%',#{reportSelectParam.expert},'%')
+    </if>
+
+    <if test="reportSelectParam.userName!=null and reportSelectParam.userName!=''">
+      and s.user_name like CONCAT ('%',#{reportSelectParam.userName},'%') and s.user_id=r.user_id
+    </if>
+
+    <if test="reportSelectParam.teacherName!=null and reportSelectParam.teacherName!=''">
+      and t.user_name like CONCAT ('%',#{reportSelectParam.teacherName},'%') and t.user_id=p.one_id and p.project_id=r.project_id
+    </if>
+
+    <if test="reportSelectParam.expertName!=null and reportSelectParam.expertName!=''">
+      and e.user_name like CONCAT ('%',#{reportSelectParam.expertName},'%') and e.user_id=r.expert
+    </if>
+
+    <if test="reportSelectParam.projectName!=null and reportSelectParam.projectName!=''">
+      and p.project_name like CONCAT ('%',#{reportSelectParam.projectName},'%') and p.project_id=r.project_id
+    </if>
+
+    <if test="reportSelectParam.oneId!=null and reportSelectParam.oneId!=''">
+      and p.one_id like CONCAT ('%',#{reportSelectParam.oneId},'%') and p.project_id=r.project_id
+    </if>
+
+  </select>
 </mapper>

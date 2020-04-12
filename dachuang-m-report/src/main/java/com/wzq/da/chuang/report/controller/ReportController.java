@@ -6,7 +6,9 @@ import com.wzq.da.chuang.model.dto.report.ReportSelectParam;
 import com.wzq.da.chuang.model.pojos.report.MFile;
 import com.wzq.da.chuang.model.pojos.report.MReport;
 import com.wzq.da.chuang.model.pojos.report.Project;
+import com.wzq.da.chuang.model.pojos.user.College;
 import com.wzq.da.chuang.model.pojos.user.UserInformation;
+import com.wzq.da.chuang.report.service.CollegeService;
 import com.wzq.da.chuang.report.service.MFileService;
 import com.wzq.da.chuang.report.service.MReportService;
 import com.wzq.da.chuang.report.service.ProjectService;
@@ -48,6 +50,9 @@ public class ReportController {
     @Resource
     private UserService userService;
 
+    @Resource
+    private CollegeService collegeService;
+
     /**
      * 通过项目id查看中期报告信息
      * @param projectId
@@ -66,11 +71,17 @@ public class ReportController {
             Project project = projectService.selectByPrimaryKey(mReport.getProjectId());
             ReportSelectDto reportSelectDto = new ReportSelectDto();
             reportSelectDto.setProjectName(project.getProjectName());
+
+            College college = collegeService.selectByPrimaryKey(project.getCollegeId());
+            reportSelectDto.setCollegeName(college.getCollegeName());
+
             reportSelectDto.setMReport(mReport);
             List<MFile> mFiles = mFileService.selectByReportId(mReport.getReportId());
             if (mFiles != null){
                 reportSelectDto.setMFiles(mFiles);
             }
+
+            reportSelectDto.setSubmit(1);
 
             UserInformation user = userService.selectByPrimaryKey(mReport.getUserId());
             reportSelectDto.setUserName(user.getUserName());
@@ -143,6 +154,11 @@ public class ReportController {
                     ReportSelectDto reportSelectDto = new ReportSelectDto();
                     reportSelectDto.setProjectName(project.getProjectName());
                     reportSelectDto.setMReport(mReport);
+                    reportSelectDto.setSubmit(1);
+
+                    College college = collegeService.selectByPrimaryKey(project.getCollegeId());
+                    reportSelectDto.setCollegeName(college.getCollegeName());
+
                     List<MFile> mFiles = mFileService.selectByReportId(mReport.getReportId());
                     if (mFiles != null){
                         reportSelectDto.setMFiles(mFiles);

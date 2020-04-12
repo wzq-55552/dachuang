@@ -35,13 +35,13 @@ public class ExpertController {
     @PreAuthorize("isAuthenticated()") // 不用权限，请求头还是得有token
     public ResponseResult<Void> approval(@RequestBody ExpertApprovalParam expertApprovalParam){
         if (expertApprovalParam!=null && expertApprovalParam.getReportId()!=null
-        && expertApprovalParam.getEApproval()!=null ){
+        && expertApprovalParam.getApproval()!=null ){
             if (mReportService.selectByPrimaryKey(expertApprovalParam.getReportId())==null){
                 return new ResponseResult<Void>(ResponseResult.CodeStatus.FAIL,"中期报告不存在");
             }
             MReport mReport = new MReport();
-            mReport.setEApproval(expertApprovalParam.getEApproval());
-            mReport.setEComment(expertApprovalParam.getEComment());
+            mReport.setEApproval(expertApprovalParam.getApproval());
+            mReport.setEComment(expertApprovalParam.getComment());
             mReport.setReportId(expertApprovalParam.getReportId());
             mReportService.updateByPrimaryKeySelective(mReport);
             return new ResponseResult<Void>(ResponseResult.CodeStatus.OK,"认可成功");

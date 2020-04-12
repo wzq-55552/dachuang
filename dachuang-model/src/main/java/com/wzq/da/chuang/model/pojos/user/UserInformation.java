@@ -3,6 +3,7 @@ package com.wzq.da.chuang.model.pojos.user;
 import java.io.Serializable;
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
@@ -29,6 +30,7 @@ public class UserInformation implements Serializable {
      */
     @Column(name = "`password`")
     @ApiModelProperty(value = "用户密码",required = true)
+    @JsonIgnore
     private String password;
 
     /**

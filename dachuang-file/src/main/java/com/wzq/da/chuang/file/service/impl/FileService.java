@@ -16,7 +16,7 @@ public class FileService {
         // 后缀
         String extName = originFileName.substring(originFileName.lastIndexOf(".") + 1);
         // 判断是不是符合要求的文件后缀
-        if(!extName.matches("(png|jpg|jpeg|doc|docx|pdf|pptx|xls|xlsx)")) {
+        if(!extName.matches("(png|jpg|jpeg|doc|docx|pdf|pptx|xls|xlsx|txt|md)")) {
             // "文件格式错误"
             return new ResponseResult<String>(ResponseResult.CodeStatus.FAIL,"文件格式错误",null);
         }

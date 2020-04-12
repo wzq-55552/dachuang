@@ -34,13 +34,13 @@ public class TeacherController {
     @PreAuthorize("isAuthenticated()") // 不用权限，请求头还是得有token
     public ResponseResult<Void> approval(@RequestBody TeacherApprovalParam teacherApprovalParam){
         if (teacherApprovalParam!=null && teacherApprovalParam.getReportId()!=null
-        && teacherApprovalParam.getTApproval()!=null ){
+        && teacherApprovalParam.getApproval()!=null ){
             if (mReportService.selectByPrimaryKey(teacherApprovalParam.getReportId())==null){
                 return new ResponseResult<Void>(ResponseResult.CodeStatus.FAIL,"中期报告不存在");
             }
             MReport mReport = new MReport();
-            mReport.setTApproval(teacherApprovalParam.getTApproval());
-            mReport.setTComment(teacherApprovalParam.getTComment());
+            mReport.setTApproval(teacherApprovalParam.getApproval());
+            mReport.setTComment(teacherApprovalParam.getComment());
             mReport.setReportId(teacherApprovalParam.getReportId());
             mReportService.updateByPrimaryKeySelective(mReport);
             return new ResponseResult<Void>(ResponseResult.CodeStatus.OK,"认可成功");

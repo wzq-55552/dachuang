@@ -27,12 +27,12 @@ public class TeacherApprovalParam implements Serializable {
      * 导师评语
      */
     @ApiModelProperty(value = "导师评语",required = false)
-    private String tComment;
+    private String comment;
 
     /**
      * 导师认可，未审核0，不通过1，通过2，退回修改3
      */
     @ApiModelProperty(value = "导师认可，未审核0，之后3个按钮，不通过1，通过2，退回修改3",required = true)
-    private Integer tApproval;
+    private Integer approval;
 
 }

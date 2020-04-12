@@ -72,21 +72,21 @@ public class Project implements Serializable {
      */
     @Column(name = "s_report")
     @ApiModelProperty(value = "申请报告提交状态，0未提交，1提交,默认0",required = true)
-    private Boolean sReport;
+    private Integer sReport;
 
     /**
      * 中期报告提交状态，0未提交，1提交，默认0
      */
     @Column(name = "m_report")
     @ApiModelProperty(value = "中期报告提交状态，0false未提交，1true提交，默认0",required = true)
-    private Boolean mReport;
+    private Integer mReport;
 
     /**
      * 结题报告提交状态，0未提交，1提交，默认0
      */
     @Column(name = "f_report")
     @ApiModelProperty(value = "结题报告提交状态，0未提交，1提交，默认0",required = true)
-    private Boolean fReport;
+    private Integer fReport;
 
     private static final long serialVersionUID = -1643384171842193695L;
 }

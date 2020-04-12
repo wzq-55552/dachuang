@@ -36,6 +36,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @CrossOrigin(origins = "*", maxAge = 3600)
@@ -77,31 +78,44 @@ public class AdminController {
     @GetMapping("/select/all")
     @ApiOperation(value = "大创管理者获取所有中期报告情况,如果专家id为空就是未指派，设置分类")
     @PreAuthorize("isAuthenticated()") // 不用权限，请求头还是得有token
-    public ResponseResult<List<ReportSelectDto>> selectAll(){
-        List<ReportSelectDto> reportSelectDtos = new ArrayList<>();
-        List<Project> projects = projectService.selectSelfProject("4");
-        if (projects!= null && projects.size()>0){
-            projects.forEach(project -> {
-                ReportSelectDto reportSelectDto = new ReportSelectDto();
-                reportSelectDto.setProjectName(project.getProjectName());
-                MReport mReport = mReportService.selectByProjectId(project.getProjectId());
-                reportSelectDto.setMReport(mReport);
-                List<MFile> mFiles = mFileService.selectByReportId(mReport.getReportId());
-                reportSelectDto.setMFiles(mFiles);
+    public ResponseResult<List<ReportSelectDto>> selectAll(@RequestBody Map<String,String> userIdMap){
+        if (!StringUtils.isEmpty(userIdMap.get("userId"))){
+            List<ReportSelectDto> reportSelectDtos = new ArrayList<>();
+            List<Project> projects = projectService.selectSelfProject(userIdMap.get("userId"));
+            if (projects!= null && projects.size()>0){
+                projects.forEach(project -> {
+                    //project
+                    ReportSelectDto reportSelectDto = new ReportSelectDto();
+                    reportSelectDto.setProjectName(project.getProjectName());
+                    UserInformation teacher = userService.selectByPrimaryKey(project.getOneId());
+                    reportSelectDto.setTeacherName(teacher.getUserName());
+                    UserInformation user = userService.selectByPrimaryKey(project.getUserId());
+                    reportSelectDto.setUserName(user.getUserName());
+                    reportSelectDto.setSubmit(project.getMReport());
+                    College college = collegeService.selectByPrimaryKey(project.getCollegeId());
+                    reportSelectDto.setCollegeName(college.getCollegeName());
 
-                UserInformation user = userService.selectByPrimaryKey(mReport.getUserId());
-                reportSelectDto.setUserName(user.getUserName());
-                UserInformation teacher = userService.selectByPrimaryKey(project.getOneId());
-                reportSelectDto.setTeacherName(teacher.getUserName());
-                if (!StringUtils.isEmpty(mReport.getExpert())){
-                    UserInformation expert = userService.selectByPrimaryKey(mReport.getExpert());
-                    reportSelectDto.setExpertName(expert.getUserName());
-                }
+                    //报告提交
+                    if (project.getMReport().equals(1)){
+                        MReport mReport = mReportService.selectByProjectId(project.getProjectId());
+                        reportSelectDto.setMReport(mReport);
+                        List<MFile> mFiles = mFileService.selectByReportId(mReport.getReportId());
+                        if (mFiles!=null&&mFiles.size()>0){
+                            reportSelectDto.setMFiles(mFiles);
+                        }
+                        if (!StringUtils.isEmpty(mReport.getExpert())){
+                            UserInformation expert = userService.selectByPrimaryKey(mReport.getExpert());
+                            reportSelectDto.setExpertName(expert.getUserName());
+                        }
+                    }
 
-                reportSelectDtos.add(reportSelectDto);
-            });
+                    reportSelectDtos.add(reportSelectDto);
+                });
+            }
+            return new ResponseResult<List<ReportSelectDto>>(ResponseResult.CodeStatus.OK,"获取数据成功",reportSelectDtos);
         }
-        return new ResponseResult<List<ReportSelectDto>>(ResponseResult.CodeStatus.OK,"获取数据成功",reportSelectDtos);
+
+        return new ResponseResult<List<ReportSelectDto>>(ResponseResult.CodeStatus.FAIL,"参数为空",null);
     }
 
     /**
@@ -126,7 +140,7 @@ public class AdminController {
                 mReport.setReportId(aLong);
                 mReport.setExpert(expertSelectParam.getExpert());
 
-                mReportService.insertSelective(mReport);
+                mReportService.updateByPrimaryKeySelective(mReport);
             });
             return new ResponseResult<>(ResponseResult.CodeStatus.OK,"选派专家成功");
         }
@@ -143,13 +157,13 @@ public class AdminController {
     @PreAuthorize("isAuthenticated()") // 不用权限，请求头还是得有token
     public ResponseResult<Void> approval(@RequestBody AdminApprovalParam adminApprovalParam){
         if (adminApprovalParam!=null && adminApprovalParam.getReportId()!=null
-        && adminApprovalParam.getSApproval()!=null ){
+        && adminApprovalParam.getApproval()!=null ){
             if (mReportService.selectByPrimaryKey(adminApprovalParam.getReportId())==null){
                 return new ResponseResult<Void>(ResponseResult.CodeStatus.FAIL,"中期报告不存在");
             }
             MReport mReport = new MReport();
-            mReport.setSApproval(adminApprovalParam.getSApproval());
-            mReport.setSComment(adminApprovalParam.getSComment());
+            mReport.setSApproval(adminApprovalParam.getApproval());
+            mReport.setSComment(adminApprovalParam.getComment());
             mReport.setReportId(adminApprovalParam.getReportId());
             mReportService.updateByPrimaryKeySelective(mReport);
             return new ResponseResult<Void>(ResponseResult.CodeStatus.OK,"认可成功");
@@ -166,7 +180,7 @@ public class AdminController {
     @PostMapping("/excel")
     @ApiOperation(value = "大创管理者汇总生成报表")
     @PreAuthorize("isAuthenticated()") // 不用权限，请求头还是得有token
-    public ResponseResult<Void> excel(HttpServletResponse response){
+    public void excel(HttpServletResponse response){
 
         List<College> colleges = collegeService.selectAll();
 
@@ -216,7 +230,7 @@ public class AdminController {
                         s = s + "，" + teacher2.getUserName();
                     }
                     excelPojo.setTeacherName(s);
-                    if (project.getMReport()){
+                    if (project.getMReport().equals(1)){
                         excelPojo.setReport("已提交");
                         MReport mReport = mReportService.selectByProjectId(project.getProjectId());
                         if (!StringUtils.isEmpty(mReport.getExpert())){
@@ -327,7 +341,6 @@ public class AdminController {
         }
         //此处记得关闭输出Servlet流
         IoUtil.close(out);
-        return new ResponseResult<Void>(ResponseResult.CodeStatus.OK,"生成报表成功");
     }
 
 }

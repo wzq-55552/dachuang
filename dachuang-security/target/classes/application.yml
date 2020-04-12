@@ -10,7 +10,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     jdbc-url: jdbc:mysql://47.113.80.250:3306/dachuang?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=GMT%2B8
     username: root
-    password: 123456
+    password: wzq7791671..
 
     # Hikari 连接池配置`
     # 最小空闲连接数量`
@@ -34,7 +34,7 @@ spring:
   redis:
     host: 47.113.80.250
     port: 6379
-    password:
+    password: wzq7791671..
     timeout: 30000
     jedis:
       pool:

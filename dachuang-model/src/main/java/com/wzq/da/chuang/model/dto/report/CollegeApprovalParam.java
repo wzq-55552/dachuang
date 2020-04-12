@@ -25,12 +25,12 @@ public class CollegeApprovalParam implements Serializable {
      * 学院评语
      */
     @ApiModelProperty(value = "学院评语",required = false)
-    private String cComment;
+    private String comment;
 
     /**
      * 学院认可，未审核0，不通过1，通过2，退回学生3，退回导师4
      */
     @ApiModelProperty(value = "学院认可，未审核0，之后4个按钮，不通过1，通过2，退回学生3，退回导师4",required = true)
-    private Integer cApproval;
+    private Integer approval;
 
 }

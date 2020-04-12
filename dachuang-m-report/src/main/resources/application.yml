@@ -5,6 +5,11 @@ spring:
   application:
     name: report9003
 
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 200MB
+
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
     driverClassName: com.mysql.cj.jdbc.Driver

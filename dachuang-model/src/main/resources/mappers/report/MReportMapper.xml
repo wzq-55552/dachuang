@@ -26,11 +26,13 @@
 
   <select id="selectByThree" resultType="com.wzq.da.chuang.model.pojos.report.MReport">
     select
-    <include refid="Base_Column_List" />
+    distinct r.report_id,r.user_id,r.content,r.project_id,r.t_comment,r.t_approval,r.c_comment,r.c_approval,
+    r.expert,r.s_comment,r.s_approval,r.e_comment,r.e_approval
     from m_report r,project p,user s,user t,user e
     where
+    true
     <if test="reportSelectParam.reportId!=null">
-      r.report_id=#{reportSelectParam.reportId}
+      and r.report_id=#{reportSelectParam.reportId}
     </if>
 
     <if test="reportSelectParam.projectId!=null">
@@ -50,7 +52,7 @@
     </if>
 
     <if test="reportSelectParam.teacherName!=null and reportSelectParam.teacherName!=''">
-      and t.user_name like CONCAT ('%',#{reportSelectParam.teacherName},'%') and t.user_id=p.one_id and p.poject_id=r.poject_id
+      and t.user_name like CONCAT ('%',#{reportSelectParam.teacherName},'%') and t.user_id=p.one_id and p.project_id=r.project_id
     </if>
 
     <if test="reportSelectParam.expertName!=null and reportSelectParam.expertName!=''">
@@ -59,7 +61,6 @@
 
     <if test="reportSelectParam.projectName!=null and reportSelectParam.projectName!=''">
       and p.project_name like CONCAT ('%',#{reportSelectParam.projectName},'%') and p.project_id=r.project_id
-
     </if>
 
     <if test="reportSelectParam.oneId!=null and reportSelectParam.oneId!=''">

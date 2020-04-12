@@ -93,7 +93,7 @@ public class StudentController {
                 //设置项目的中期报告已提交
                 Project project = new Project();
                 project.setProjectId(reportInsertParam.getProjectId());
-                project.setMReport(true);
+                project.setMReport(1);
                 projectService.updateByPrimaryKeySelective(project);
                 return new ResponseResult<Long>(ResponseResult.CodeStatus.OK,"生成中期报告成功",mReport1.getReportId());
             }
@@ -290,7 +290,7 @@ public class StudentController {
             String fUrl = mFile.getFUrl();
             //删除文件
             Map<String, String> map = new HashMap<>();
-            map.put("url",fUrl);
+            map.put("fileUrl",fUrl);
             ResponseResult responseResult = restTemplate.postForObject("http://localhost:9002/delete", map, ResponseResult.class);
             if (responseResult!=null && responseResult.getCode().equals(ResponseResult.CodeStatus.OK)) {
                 //删除数据库纪录
