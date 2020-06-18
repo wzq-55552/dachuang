@@ -10,7 +10,7 @@
 
     <properties>
         <!-- jackson -->
-        <jackson-databind.version>2.9.8</jackson-databind.version>
+        <jackson-databind.version>2.10.0.pr1</jackson-databind.version>
         <!-- tkmybatis -->
         <spring-boot-mapper.version>2.1.5</spring-boot-mapper.version>
         <!-- javax -->
