@@ -32,7 +32,7 @@ public class ExpertController {
      */
     @PostMapping("/approval")
     @ApiOperation(value = "评审专家认可中期报告,一般什么认可都可以有意见")
-    @PreAuthorize("isAuthenticated()") // 不用权限，请求头还是得有token
+    @PreAuthorize("hasAnyAuthority('ExpertApproval','Expert')") // 资源权限
     public ResponseResult<Void> approval(@RequestBody ExpertApprovalParam expertApprovalParam){
         if (expertApprovalParam!=null && expertApprovalParam.getReportId()!=null
         && expertApprovalParam.getApproval()!=null ){

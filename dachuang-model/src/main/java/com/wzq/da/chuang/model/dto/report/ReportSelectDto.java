@@ -50,4 +50,10 @@ public class ReportSelectDto implements Serializable {
     @ApiModelProperty(value = "中期报告的文件，是一个集合",required = false)
     private List<MFile> mFiles;
 
+    /**
+     * 等级，无0，校1，省2，国3，默认0
+     */
+    @ApiModelProperty(value = "等级，无0，校1，省2，国3，默认0",required = false)
+    private Integer grade;
+
 }

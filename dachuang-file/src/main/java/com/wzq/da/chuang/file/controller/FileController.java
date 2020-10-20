@@ -65,8 +65,9 @@ public class FileController {
                 //去掉文件路径前缀
                 String fileUrl = DeleteFrontUrl(downloadDto.getFileUrl());
                 byte[] bytes = fileService.download(fileUrl);
+                System.out.println(URLEncoder.encode(downloadDto.getFileName(), "UTF-8"));
                 // 需要在上传的时候保存文件名。下载的时候使用对应的格式,消费者传名字（包括后缀）和路径过来，路径去掉前缀
-                response.setHeader("Content-disposition", "attachment;filename=" + URLEncoder.encode(downloadDto.getFileName(), "UTF-8"));
+                response.addHeader("Content-Disposition", "attachment;filename=" + URLEncoder.encode(downloadDto.getFileName(), "UTF-8"));
                 response.setCharacterEncoding("UTF-8");
                 ServletOutputStream outputStream = null;
                 try {

@@ -21,6 +21,7 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -97,9 +98,9 @@ public class ReportController {
         return new ResponseResult<ReportSelectDto>(ResponseResult.CodeStatus.FAIL,"参数为空",null);
     }
 
-    @GetMapping("/select")
+    @PostMapping("/select")
     @ApiOperation(value = "二级学院管理、大创管理员查询中期报告（多字段模糊搜索），学生和指导老师不用查询，直接点击项目进去看对应的报告")
-    @PreAuthorize("isAuthenticated()") // 不用权限，请求头还是得有token
+    @PreAuthorize("hasAnyAuthority('ReportSelect','College','Admin')") // 资源权限
     public ResponseResult<List<ReportSelectDto>> select(@RequestBody ReportSelectParam reportSelectParam){
         if (reportSelectParam != null){
 //            List<MReport> MReports = new ArrayList<>();
@@ -153,6 +154,7 @@ public class ReportController {
                     Project project = projectService.selectByPrimaryKey(mReport.getProjectId());
                     ReportSelectDto reportSelectDto = new ReportSelectDto();
                     reportSelectDto.setProjectName(project.getProjectName());
+                    reportSelectDto.setGrade(project.getGrade());
                     reportSelectDto.setMReport(mReport);
                     reportSelectDto.setSubmit(1);
 

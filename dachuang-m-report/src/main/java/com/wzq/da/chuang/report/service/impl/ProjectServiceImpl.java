@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import com.wzq.da.chuang.model.mappers.report.ProjectMapper;
 import com.wzq.da.chuang.report.service.ProjectService;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 import tk.mybatis.mapper.entity.Example;
 
@@ -16,6 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
+@Transactional
 public class ProjectServiceImpl implements ProjectService{
 
     @Resource

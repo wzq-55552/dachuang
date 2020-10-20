@@ -6,12 +6,14 @@ import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import com.wzq.da.chuang.model.mappers.report.MReportMapper;
 import com.wzq.da.chuang.report.service.MReportService;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 import tk.mybatis.mapper.entity.Example;
 
 import java.util.List;
 
 @Service
+@Transactional
 public class MReportServiceImpl implements MReportService{
 
     @Resource

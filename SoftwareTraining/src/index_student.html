@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>竞赛在线评分系统</title>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+
+</head>
+
+<body>
+    <div style="position: absolute; width: 100%; height: 100%; table-layout: fixed;">
+        <table class="public-column" onselectstart="return false">
+            <tr class="public-admin-header" id="public-admin-header" style="background-color: #292A2A">
+                <td class="public-toolbar">
+                    <div class="content" onclick="window.location.href = 'index.html'">
+                        <!-- <img src="http://img.hb.aicdn.com/364e07da53732475f1ae5e898d6ad9a9e01e8bfd3ac1-YV9g0J_fw658"> -->
+                        <strong>大创中期检查系统</strong>
+                    </div>
+                </td>
+                <td class="header-function">
+                    <form class="navbar-form navbar-left" role="search">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search">
+                            <button type="submit" class="btn btn-info">搜索</button>
+                        </div>
+                    </form>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                <img width="20" height="20" src="./images/avatar-max-img.png" alt="">
+                                <sapn style="color:#ccc ;">我的</sapn><span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-current-user">
+                                    当前登录用户: 潘强（学生）
+                                </li>
+
+                                <li><a href="#">个人主页</a></li>
+                                <li><a href="/settings/profile">我的消息</a></li>
+                                <li><a href="/logout">退出账号</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+            <tr class="public-admin-main" id="pubilc-admin-main">
+                <td class="public-toolbar" style="background-color: #323534;">
+                    <div style="position: absolute;border-bottom: 1px solid rgb(224, 218, 218); top: 0; width: 200px; height: 50px; line-height: 50px; font-size: 16px; text-align: center;">我的项目</div>
+                    <!-- <div class="objectTitle">
+                        <p>我的项目</p>
+                    </div> -->
+                    <div class="container" id="home-container">
+                        <ul class="nav nav-pills nav-stacked">
+
+                            <li>
+                                <a href="#">
+                                大创中期检查系统
+                            </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="home-functions" id="home-functions">
+                        <div class="home-function-container">
+                            <div class="function-icon">
+                                <img src="http://img.hb.aicdn.com/330452c2a185e967c50889d43e8be100061063bfd61-E7r3Yw_fw658">
+                            </div>
+                            <div class="function-tip">账号管理</div>
+                        </div>
+                        <div class="home-function-container">
+                            <div class="function-icon">
+                                <img src="http://img.hb.aicdn.com/c6a9c3d53539fd8a6c4c465b5c0bcece54449bbe14ad-IOQnuG_fw658">
+                            </div>
+                            <div class="function-tip">添加新项目</div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <section class="container">
+                        <ul class="media-list">
+                            <li class="media">
+                                <div class="media-left">
+                                    <a href="#">
+                                        <img width="50" height="50" class="media-object" src="./images/avatar-max-img.png" alt="...">
+                                    </a>
+                                </div>
+                                <div class="media-body">
+                                    <h2 class="media-heading"><a href="/topics/123">项目名称：大创中期检查系统</a></h2>
+                                    <p> 项目成员：吴泽强、潘强、郑桂洲、徐略标、黄史林 </p>
+                                </div>
+                                <div class="manager">
+                                    <button type="button" class="btn btn-danger">删除</button>
+                                    <button type="button" class="btn btn-success">管理</button>
+
+                                </div>
+                            </li>
+
+
+                        </ul>
+                        <nav aria-label="Page navigation">
+                            <ul class="pagination">
+                                <li>
+                                    <a href="#" aria-label="Previous">
+                                        <span aria-hidden="true">&laquo;</span>
+                                    </a>
+                                </li>
+                                <li class="active"><a href="#">1</a></li>
+                                <li><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                                <li><a href="#">4</a></li>
+                                <li><a href="#">5</a></li>
+                                <li>
+                                    <a href="#" aria-label="Next">
+                                        <span aria-hidden="true">&raquo;</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </section>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+<!-- import Vue before Element -->
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<!-- import JavaScript -->
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+
+</html>

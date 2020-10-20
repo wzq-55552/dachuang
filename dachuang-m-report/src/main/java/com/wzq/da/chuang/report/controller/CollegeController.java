@@ -20,6 +20,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -58,7 +59,7 @@ public class CollegeController {
      */
     @PostMapping("/approval")
     @ApiOperation(value = "二级学院管理员认可中期报告,一般什么认可都可以有意见")
-    @PreAuthorize("isAuthenticated()") // 不用权限，请求头还是得有token
+    @PreAuthorize("hasAnyAuthority('CollegeApproval','College')") // 资源权限
     public ResponseResult<Void> approval(@RequestBody CollegeApprovalParam collegeApprovalParam){
         if (collegeApprovalParam!=null && collegeApprovalParam.getReportId()!=null
         && collegeApprovalParam.getApproval()!=null ){
@@ -79,14 +80,14 @@ public class CollegeController {
      * 二级学院管理员获取对应学院的中期报告情况
      * @return
      */
-    @GetMapping("/select/all")
+    @GetMapping("/select/all/{userId}")
     @ApiOperation(value = "二级学院管理员获取对应学院的中期报告情况")
-    @PreAuthorize("isAuthenticated()") // 不用权限，请求头还是得有token
-    public ResponseResult<List<ReportSelectDto>> selectAll(@RequestBody Map<String,String>userIdMap){
+    @PreAuthorize("hasAnyAuthority('CollegeSelectAll','College')") // 资源权限
+    public ResponseResult<List<ReportSelectDto>> selectAll(@PathVariable("userId") String userId){
 
-        if (!StringUtils.isEmpty(userIdMap.get("userId"))){
+        if (!StringUtils.isEmpty(userId)){
             List<ReportSelectDto> reportSelectDtos = new ArrayList<>();
-            List<Project> projects = projectService.selectSelfProject(userIdMap.get("userId"));
+            List<Project> projects = projectService.selectSelfProject(userId);
             if (projects!= null && projects.size()>0){
                 projects.forEach(project -> {
                     //project

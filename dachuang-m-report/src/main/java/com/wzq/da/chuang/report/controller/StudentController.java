@@ -73,7 +73,7 @@ public class StudentController {
      */
     @PostMapping("/insert")
     @ApiOperation(value = "中期报告信息生成")
-    @PreAuthorize("isAuthenticated()") // 不用权限，请求头还是得有token
+    @PreAuthorize("hasAnyAuthority('ReportInsert','Student')") // 资源权限
     public ResponseResult<Long> reportInsert(@RequestBody ReportInsertParam reportInsertParam){
         if (reportInsertParam != null && !StringUtils.isEmpty(reportInsertParam.getUserId())
         && !StringUtils.isEmpty(reportInsertParam.getProjectId())){
@@ -109,7 +109,7 @@ public class StudentController {
      */
     @PostMapping("/file/insert")
     @ApiOperation(value = "文件上传，可多个，在中期报告信息生成后发送，如果是修改中期报告，重新上传文件也是这个接口")
-    @PreAuthorize("isAuthenticated()") // 不用权限，请求头还是得有token
+    @PreAuthorize("hasAnyAuthority('ReportFileInsert','Student')") // 资源权限
     public ResponseResult<Void> fileInsert(@RequestParam("files") MultipartFile[] files,@RequestParam("reportId") Long reportId) throws IOException {
         if (files != null && files.length > 0 && !StringUtils.isEmpty(reportId)){
 
@@ -173,7 +173,7 @@ public class StudentController {
      */
     @PostMapping("/file/insert/one")
     @ApiOperation(value = "文件上传，一个一个，我不知道前端要怎么传，多个文件的方法也有，单个文件的话，是这个")
-    @PreAuthorize("isAuthenticated()") // 不用权限，请求头还是得有token
+    @PreAuthorize("hasAnyAuthority('ReportFileInsertOne','Student')") // 资源权限
     public ResponseResult<Void> fileInsertOne(@RequestParam("file") MultipartFile file,@RequestParam("reportId") Long reportId) throws IOException {
         if (file != null && !StringUtils.isEmpty(reportId)){
 
@@ -237,7 +237,7 @@ public class StudentController {
      */
     @PostMapping("/update")
     @ApiOperation(value = "修改中期报告,其实也就修改简介而已了，传id和content过来")
-    @PreAuthorize("isAuthenticated()") // 不用权限，请求头还是得有token
+    @PreAuthorize("hasAnyAuthority('ReportUpdate','Student')") // 资源权限
     public ResponseResult<Void> reportUpdate(@RequestBody ReportUpdateParam reportUpdateParam){
         if (reportUpdateParam!=null && reportUpdateParam.getReportId()!=null){
 
@@ -267,7 +267,7 @@ public class StudentController {
      */
     @PostMapping("/file/delete")
     @ApiOperation(value = "文件删除，一个一个删，点击文件后的删除按钮，就删除了对应该中期报告的一个文件，给我fileId")
-    @PreAuthorize("isAuthenticated()") // 不用权限，请求头还是得有token
+    @PreAuthorize("hasAnyAuthority('ReportFileDelete','Student')") // 资源权限
     public ResponseResult<Void> fileDelete(@RequestBody Map<String,String> fileId) {
         if (fileId!=null && !StringUtils.isEmpty(fileId.get("fileId"))){
 

@@ -21,6 +21,10 @@ public class AuthToken implements Serializable {
     @ApiModelProperty(value = "刷新token",required = true)
     String refreshToken;
 
+    //令牌信息
+    @ApiModelProperty(value = "身份信息，1是学生，2是指导老师，3是二级学院，4是大创管理，5是专家",required = true)
+    String identityId;
+
     //jwt短令牌
     @ApiModelProperty(value = "jwt短令牌",required = true)
     String jti;
@@ -47,5 +51,13 @@ public class AuthToken implements Serializable {
 
     public void setJti(String jti) {
         this.jti = jti;
+    }
+
+    public String getIdentityId() {
+        return identityId;
+    }
+
+    public void setIdentityId(String identityId) {
+        this.identityId = identityId;
     }
 }

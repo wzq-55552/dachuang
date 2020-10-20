@@ -24,6 +24,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -36,7 +37,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
-import java.util.Map;
+import java.util.concurrent.atomic.AtomicInteger;
 
 @RestController
 @CrossOrigin(origins = "*", maxAge = 3600)
@@ -65,7 +66,7 @@ public class AdminController {
      */
     @GetMapping("/select/expert/all")
     @ApiOperation(value = "大创管理者查询所有专家")
-    @PreAuthorize("isAuthenticated()") // 不用权限，请求头还是得有token
+    @PreAuthorize("hasAnyAuthority('SelectExpertAll','Admin')") // 资源权限
     public ResponseResult<List<UserInformation>> selectExpert(){
         List<UserInformation> userInformations = userService.selectExpert();
         return new ResponseResult<List<UserInformation>>(ResponseResult.CodeStatus.OK,"获取成功",userInformations);
@@ -75,13 +76,13 @@ public class AdminController {
      * 大创管理者获取所有中期报告情况
      * @return
      */
-    @GetMapping("/select/all")
+    @GetMapping("/select/all/{userId}")
     @ApiOperation(value = "大创管理者获取所有中期报告情况,如果专家id为空就是未指派，设置分类")
-    @PreAuthorize("isAuthenticated()") // 不用权限，请求头还是得有token
-    public ResponseResult<List<ReportSelectDto>> selectAll(@RequestBody Map<String,String> userIdMap){
-        if (!StringUtils.isEmpty(userIdMap.get("userId"))){
+    @PreAuthorize("hasAnyAuthority('AdminSelectAll','Admin')") // 资源权限
+    public ResponseResult<List<ReportSelectDto>> selectAll(@PathVariable("userId")String userId){
+        if (!StringUtils.isEmpty(userId)){
             List<ReportSelectDto> reportSelectDtos = new ArrayList<>();
-            List<Project> projects = projectService.selectSelfProject(userIdMap.get("userId"));
+            List<Project> projects = projectService.selectSelfProject(userId);
             if (projects!= null && projects.size()>0){
                 projects.forEach(project -> {
                     //project
@@ -125,7 +126,7 @@ public class AdminController {
      */
     @PostMapping("/set/expert")
     @ApiOperation(value = "大创管理者给中期报告选派专家,可批量，根据中期报告的专家id为空就标记为选派")
-    @PreAuthorize("isAuthenticated()") // 不用权限，请求头还是得有token
+    @PreAuthorize("hasAnyAuthority('SetExpert','Admin')") // 资源权限
     public ResponseResult<Void> setExpert(@RequestBody ExpertSelectParam expertSelectParam){
         if (expertSelectParam != null && !StringUtils.isEmpty(expertSelectParam.getExpert())
         && expertSelectParam.getReportIds()!=null && expertSelectParam.getReportIds().size()>0){
@@ -154,7 +155,7 @@ public class AdminController {
      */
     @PostMapping("/approval")
     @ApiOperation(value = "大创管理者退回修改，意见")
-    @PreAuthorize("isAuthenticated()") // 不用权限，请求头还是得有token
+    @PreAuthorize("hasAnyAuthority('AdminApproval','Admin')") // 资源权限
     public ResponseResult<Void> approval(@RequestBody AdminApprovalParam adminApprovalParam){
         if (adminApprovalParam!=null && adminApprovalParam.getReportId()!=null
         && adminApprovalParam.getApproval()!=null ){
@@ -179,7 +180,7 @@ public class AdminController {
     //xxxx年国家级、省级大学生创新创业训练项目中期检查验收结果
     @PostMapping("/excel")
     @ApiOperation(value = "大创管理者汇总生成报表")
-    @PreAuthorize("isAuthenticated()") // 不用权限，请求头还是得有token
+    @PreAuthorize("hasAnyAuthority('AdminExcel','Admin')") // 资源权限
     public void excel(HttpServletResponse response){
 
         List<College> colleges = collegeService.selectAll();
@@ -191,10 +192,19 @@ public class AdminController {
         Calendar date = Calendar.getInstance();
         String year = String.valueOf(date.get(Calendar.YEAR));
 
+        AtomicInteger x = new AtomicInteger(1);
+
         // 一个学院一个分Sheet
         colleges.forEach(college -> {
-            // 当前sheet,切换，从第0行开始
-            writer.setSheet(college.getCollegeName());
+            // 起始已经在第一个Sheet了，所以先在Sheet1加入内容先,第二页数据才需要setSheet
+            if (x.get() == 1){
+                // ->表达式中必须原子++
+                x.getAndIncrement();
+                writer.renameSheet(college.getCollegeName());
+            }else{
+                // 当前sheet,切换，从第0行开始
+                writer.setSheet(college.getCollegeName());
+            }
 
             // 合并单元格后的标题行，使用默认标题样式
             writer.merge(9,year+"年"+college.getCollegeName()+"国家级、省级大学生创新创业训练项目中期检查验收结果");

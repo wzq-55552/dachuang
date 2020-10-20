@@ -1,0 +1,5 @@
+com\wzq\da\chuang\file\FileJarApplication.class
+com\wzq\da\chuang\file\utils\FastDFSClient.class
+com\wzq\da\chuang\file\config\CorsFilter.class
+com\wzq\da\chuang\file\service\impl\FileService.class
+com\wzq\da\chuang\file\controller\FileController.class

@@ -5,10 +5,12 @@ import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import com.wzq.da.chuang.model.mappers.user.CollegeMapper;
 import com.wzq.da.chuang.report.service.CollegeService;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Service
+@Transactional
 public class CollegeServiceImpl implements CollegeService{
 
     @Resource

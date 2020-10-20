@@ -31,7 +31,7 @@ public class TeacherController {
      */
     @PostMapping("/approval")
     @ApiOperation(value = "指导老师认可中期报告,一般什么认可都可以有意见")
-    @PreAuthorize("isAuthenticated()") // 不用权限，请求头还是得有token
+    @PreAuthorize("hasAnyAuthority('TeacherApproval','Teacher')") // 资源权限
     public ResponseResult<Void> approval(@RequestBody TeacherApprovalParam teacherApprovalParam){
         if (teacherApprovalParam!=null && teacherApprovalParam.getReportId()!=null
         && teacherApprovalParam.getApproval()!=null ){

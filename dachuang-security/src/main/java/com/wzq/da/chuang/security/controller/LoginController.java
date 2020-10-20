@@ -84,6 +84,7 @@ public class LoginController {
         AuthToken authToken = authService.login(loginDto, clientId, clientSecret);
 
         if (authToken!=null){
+            authToken.setIdentityId(userInformation.getIdentityId());
             return new ResponseResult<AuthToken>(ResponseResult.CodeStatus.OK,"令牌生成成功", authToken);
         }
 
@@ -179,6 +180,7 @@ public class LoginController {
             //回溯
             arr[len] = c;
         }
+        //验证码图片只有小写和数字，不用判断
         //小写字母或数字分支
         dfs(arr,len);
         //回溯
