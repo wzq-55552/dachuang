@@ -22,6 +22,8 @@
         <module>dachuang-commons</module>
         <module>dachuang-file</module>
         <module>dachuang-m-report</module>
+        <module>dachuang-eureka</module>
+        <module>dachuang-gateway</module>
     </modules>
 
     <properties>

@@ -30,6 +30,8 @@
         <!-- poi -->
         <poi.ooxml.version>4.1.1</poi.ooxml.version>
         <poi.schemas.version>3.17</poi.schemas.version>
+        <!-- jjwt -->
+        <jjwt.version>0.9.0</jjwt.version>
     </properties>
 
     <dependencyManagement>
@@ -133,6 +135,13 @@
                 <groupId>com.github.tobato</groupId>
                 <artifactId>fastdfs-client</artifactId>
                 <version>${fastdfs.version}</version>
+            </dependency>
+
+            <!-- jjwt -->
+            <dependency>
+                <groupId>io.jsonwebtoken</groupId>
+                <artifactId>jjwt</artifactId>
+                <version>${jjwt.version}</version>
             </dependency>
         </dependencies>
 
