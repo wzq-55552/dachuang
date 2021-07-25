@@ -102,7 +102,7 @@ com.wzq.da.chuang.report.service.impl包存放该微服务的业务逻辑接口�
 
 1. 学生用户进入该系统后如下界面
 
-![img](./img\wps3.jpg) 
+![img](./img/wps3.jpg) 
 
 图2 学生端主页界面
 
@@ -112,15 +112,15 @@ com.wzq.da.chuang.report.service.impl包存放该微服务的业务逻辑接口�
 
 该功能为用户提供新建中期报告的服务，具体使用步骤如下：
 
-1. 点击图2中的![img](./img\wps4.jpg)按钮，跳转到新建中期报告的页面，可以填写简介后新建一个中期报告文件：
+1. 点击图2中的![img](./img/wps4.jpg)按钮，跳转到新建中期报告的页面，可以填写简介后新建一个中期报告文件：
 
-![img](./img\wps5.jpg) 
+![img](./img/wps5.jpg) 
 
 图3 学生主页新建中期报告页面
 
  
 
-![img](./img\wps6.jpg) 
+![img](./img/wps6.jpg) 
 
 图4 中期报告新建成功界面
 
@@ -130,23 +130,23 @@ com.wzq.da.chuang.report.service.impl包存放该微服务的业务逻辑接口�
 
 该功能为学生上传中期报告文件功能相关页面的服务，具体使用步骤如下：
 
-  1.用户在新建完中期项目后点击图2中的![img](./img\wps7.jpg)按钮进入中期报告详情界面（图5）：
+  1.用户在新建完中期项目后点击图2中的![img](./img/wps7.jpg)按钮进入中期报告详情界面（图5）：
 
-![img](./img\wps8.jpg) 
+![img](./img/wps8.jpg) 
 
 图5 中期报告详情界面
 
  
 
-2. 点击图5中的图标![img](./img\wps9.jpg)，在本地文件列表中选择要上传的文件（图6），选择完成后点击![img](./img\wps10.jpg)按钮对选中的文件进行上传，上传成功后将文件显示在下面的文件列表框中（图7）：
+2. 点击图5中的图标![img](./img/wps9.jpg)，在本地文件列表中选择要上传的文件（图6），选择完成后点击![img](./img/wps10.jpg)按钮对选中的文件进行上传，上传成功后将文件显示在下面的文件列表框中（图7）：
 
-![img](./img\wps11.jpg) 
+![img](./img/wps11.jpg) 
 
 图6 选取文件后界面
 
  
 
-![img](./img\wps12.jpg) 
+![img](./img/wps12.jpg) 
 
 图7 上传成功后显示界面
 
@@ -156,9 +156,9 @@ com.wzq.da.chuang.report.service.impl包存放该微服务的业务逻辑接口�
 
 该功能为用户提供中期报告预览服务，具体使用步骤如下：
 
-1. 用户点击图7中的![img](./img\wps13.jpg)按钮，进入预览页面（图8），效果如下所示：
+1. 用户点击图7中的![img](./img/wps13.jpg)按钮，进入预览页面（图8），效果如下所示：
 
-![img](./img\wps14.jpg) 
+![img](./img/wps14.jpg) 
 
 图8 文件预览页面
 
@@ -168,7 +168,7 @@ com.wzq.da.chuang.report.service.impl包存放该微服务的业务逻辑接口�
 
 1.项目的负责人可上传文件，上传后可对上传的文件进行下载，下载成功后为下图（图9）所示： 
 
-![img](./img\wps15.jpg) 
+![img](./img/wps15.jpg) 
 
 图9下载文件并查看文件内容
 
@@ -178,15 +178,15 @@ com.wzq.da.chuang.report.service.impl包存放该微服务的业务逻辑接口�
 
 该功能为用户提供删除所上传中期报告文件的服务，具体使用步骤如下：
 
-1. 用户点击图7中的![img](./img\wps16.jpg) 按钮，对文件进行删除操作，点击后出现是否删除的提示（图9），点击确定进入删除成功界面（图10）
+1. 用户点击图7中的![img](./img/wps16.jpg) 按钮，对文件进行删除操作，点击后出现是否删除的提示（图9），点击确定进入删除成功界面（图10）
 
-![img](./img\wps17.jpg) 
+![img](./img/wps17.jpg) 
 
 图10 删除确认界面
 
  
 
-![img](./img\wps18.jpg) 
+![img](./img/wps18.jpg) 
 
 图11 删除成功界面
 
@@ -196,9 +196,9 @@ com.wzq.da.chuang.report.service.impl包存放该微服务的业务逻辑接口�
 
 该功能为用户提供查看该项目详情功能的服务具体使用步骤如下：
 
-1. 用户点击图2中的![img](./img\wps19.jpg)按钮查看项目详情（图12）
+1. 用户点击图2中的![img](./img/wps19.jpg)按钮查看项目详情（图12）
 
-![img](./img\wps20.jpg) 
+![img](./img/wps20.jpg) 
 
 图12 查看项目详情页面
 
@@ -212,7 +212,7 @@ com.wzq.da.chuang.report.service.impl包存放该微服务的业务逻辑接口�
 
 1. 使用指导老师账号在登录页面进行登录之后，进入如下指导老师主页界面：
 
-![img](./img\wps21.jpg) 
+![img](./img/wps21.jpg) 
 
 图13 指导老师主界面
 
@@ -220,9 +220,9 @@ com.wzq.da.chuang.report.service.impl包存放该微服务的业务逻辑接口�
 
 2.2.2查看中期报告功能
 
-1.用户点击图12中的![img](./img\wps22.jpg)按钮，会跳出对应的中期报告详情内容，效果如下：
+1.用户点击图12中的![img](./img/wps22.jpg)按钮，会跳出对应的中期报告详情内容，效果如下：
 
-![img](./img\wps23.jpg) 
+![img](./img/wps23.jpg) 
 
 图14 查看中期报告详情
 
@@ -232,7 +232,7 @@ com.wzq.da.chuang.report.service.impl包存放该微服务的业务逻辑接口�
 
 1.若该项目的负责人有上传文件，则可对上传的文件进行预览和下载，预览成功后为下图（图15）所示： 
 
-![img](./img\wps24.jpg) 
+![img](./img/wps24.jpg) 
 
 图15 预览功能页面
 
@@ -254,9 +254,9 @@ com.wzq.da.chuang.report.service.impl包存放该微服务的业务逻辑接口�
 
 该功能为用户提供查看该项目详情功能的服务具体使用步骤如下：
 
-1.用户点击![img](./img\wps26.jpg)按钮查看项目详情（图17）
+1.用户点击![img](./img/wps26.jpg)按钮查看项目详情（图17）
 
-![img](./img\wps27.jpg) 
+![img](./img/wps27.jpg) 
 
 图17 点击扩展按钮查看中期报告详情
 
@@ -266,11 +266,11 @@ com.wzq.da.chuang.report.service.impl包存放该微服务的业务逻辑接口�
 
 1.在该界面中点击审核按钮，可对该中期报告进行审核认可，其中可输入评语，之后点击通过/不通过/退回修改按钮即可提交认可，如下图（图18，19）所示：
 
-![img](./img\wps28.jpg) 
+![img](./img/wps28.jpg) 
 
 图18 指导老师中期报告认可页面
 
-![img](./img\wps29.jpg) 
+![img](./img/wps29.jpg) 
 
 图19 对应的中期报告详情会显示导师的评语
 
@@ -284,7 +284,7 @@ com.wzq.da.chuang.report.service.impl包存放该微服务的业务逻辑接口�
 
 1. 使用评审专家账号在登录页面进行登录之后，进入如下界面：
 
-![img](./img\wps30.jpg) 
+![img](./img/wps30.jpg) 
 
 图20 评审专家主界面
 
@@ -294,7 +294,7 @@ com.wzq.da.chuang.report.service.impl包存放该微服务的业务逻辑接口�
 
 1.在该界面中可以点击查看按钮，会跳出对应的中期报告详情内容，效果如下：
 
-![img](./img\wps31.jpg) 
+![img](./img/wps31.jpg) 
 
 图21查看中期报告详情页面
 
@@ -304,7 +304,7 @@ com.wzq.da.chuang.report.service.impl包存放该微服务的业务逻辑接口�
 
 1.若该项目的负责人有上传文件，则可对上传的文件进行预览和下载，预览成功后为下图（图22）所示：
 
-![img](./img\wps32.jpg) 
+![img](./img/wps32.jpg) 
 
 图22 预览功能页面
 
@@ -314,7 +314,7 @@ com.wzq.da.chuang.report.service.impl包存放该微服务的业务逻辑接口�
 
 1.若该项目的负责人有上传文件，则可对上传的文件进行下载，下载成功后为下图（图23）所示：
 
-![img](./img\wps33.jpg) 
+![img](./img/wps33.jpg) 
 
 图23 下载文件并查看文件内容
 
@@ -324,9 +324,9 @@ com.wzq.da.chuang.report.service.impl包存放该微服务的业务逻辑接口�
 
 该功能为用户提供查看该项目详情功能的服务具体使用步骤如下：
 
-1.用户点击![img](./img\wps34.jpg)按钮查看项目详情（图24）
+1.用户点击![img](./img/wps34.jpg)按钮查看项目详情（图24）
 
-![img](./img\wps35.jpg) 
+![img](./img/wps35.jpg) 
 
 图24 查看项目详情页面
 
@@ -336,11 +336,11 @@ com.wzq.da.chuang.report.service.impl包存放该微服务的业务逻辑接口�
 
 1.在该界面中点击审核按钮，可对该中期报告进行审核认可，其中可输入评语，之后点击通过/不通过/暂缓通过按钮即可提交认可，如下图所示（图25，26）：
 
-![img](./img\wps36.jpg) 
+![img](./img/wps36.jpg) 
 
 图25 评审专家中期报告认可页面
 
-![img](./img\wps37.jpg) 
+![img](./img/wps37.jpg) 
 
 图26 中期报告评审专家评语页面
 
@@ -354,7 +354,7 @@ com.wzq.da.chuang.report.service.impl包存放该微服务的业务逻辑接口�
 
 1. 使用二级学院管理员账号在登录页面进行登录之后，进入如下界面：
 
-![img](./img\wps38.jpg) 
+![img](./img/wps38.jpg) 
 
 图27 二级学院管理员主界面
 
@@ -364,7 +364,7 @@ com.wzq.da.chuang.report.service.impl包存放该微服务的业务逻辑接口�
 
 1.在该界面中可以点击查看按钮，会跳出对应的中期报告详情内容，效果如下图所示（图28）：
 
-![img](./img\wps39.jpg) 
+![img](./img/wps39.jpg) 
 
 图28 查看中期报告详情
 
@@ -374,7 +374,7 @@ com.wzq.da.chuang.report.service.impl包存放该微服务的业务逻辑接口�
 
 1.若该项目的负责人有上传文件，则可对上传的文件进行预览和下载，预览功能效果如下（图29）。
 
-![img](./img\wps40.jpg) 
+![img](./img/wps40.jpg) 
 
 图29 预览功能界面
 
@@ -384,7 +384,7 @@ com.wzq.da.chuang.report.service.impl包存放该微服务的业务逻辑接口�
 
 1.若该项目的负责人有上传文件，则可对上传的文件进行下载，下载后打开效果如下（图30）：
 
-![img](./img\wps41.jpg) 
+![img](./img/wps41.jpg) 
 
 图30 下载文件并查看文件内容
 
@@ -394,9 +394,9 @@ com.wzq.da.chuang.report.service.impl包存放该微服务的业务逻辑接口�
 
 该功能为用户提供查看该项目详情功能的服务具体使用步骤如下：
 
-1.用户点击![img](./img\wps42.jpg)按钮查看项目详情（图31）：
+1.用户点击![img](./img/wps42.jpg)按钮查看项目详情（图31）：
 
-![img](./img\wps43.jpg) 
+![img](./img/wps43.jpg) 
 
 图31 点击扩展按钮查看中期报告详情
 
@@ -406,11 +406,11 @@ com.wzq.da.chuang.report.service.impl包存放该微服务的业务逻辑接口�
 
 1.在该界面中点击审核按钮，可对该中期报告进行审核认可，其中可输入评语，之后点击通过/不通过/退回学生/退回导师按钮即可提交认可，效果如下图（图32）所示：
 
-![img](./img\wps44.jpg) 
+![img](./img/wps44.jpg) 
 
 图32二级学院管理员中期报告认可页面
 
-![img](./img\wps45.jpg) 
+![img](./img/wps45.jpg) 
 
 图33 中期报告二级学院管理员评语显示页面
 
@@ -420,13 +420,13 @@ com.wzq.da.chuang.report.service.impl包存放该微服务的业务逻辑接口�
 
 1.在该页面顶部有查找按钮，点击之后会弹出表单（图34），在对应的输入框中输入想查找的内容即可对所有已提交中期报告进行查找（支持模糊搜索），其中没有输入的内容则查找所有已提交的中期报告，效果如下图（图35）所示：
 
-![img](./img\wps46.jpg) 
+![img](./img/wps46.jpg) 
 
 图34 查找界面
 
  
 
-![img](./img\wps47.jpg) 
+![img](./img/wps47.jpg) 
 
 图35 查找结果页面
 
@@ -440,7 +440,7 @@ com.wzq.da.chuang.report.service.impl包存放该微服务的业务逻辑接口�
 
 1. 使用大创管理员账号在登录页面进行登录之后，进入如下界面：
 
-![img](./img\wps48.jpg) 
+![img](./img/wps48.jpg) 
 
 图36 大创管理员主界面
 
@@ -450,7 +450,7 @@ com.wzq.da.chuang.report.service.impl包存放该微服务的业务逻辑接口�
 
 1.在该界面中可以点击查看按钮，会跳出对应的中期报告详情内容，效果如下：
 
-![img](./img\wps49.jpg) 
+![img](./img/wps49.jpg) 
 
 图37 查看中期报告详情
 
@@ -460,7 +460,7 @@ com.wzq.da.chuang.report.service.impl包存放该微服务的业务逻辑接口�
 
 1.若该项目的负责人有上传文件，可对上传的文件进行预览和下载，效果如下（图38）所示：
 
-![img](./img\wps50.jpg) 
+![img](./img/wps50.jpg) 
 
 图38 文件预览效果
 
@@ -470,7 +470,7 @@ com.wzq.da.chuang.report.service.impl包存放该微服务的业务逻辑接口�
 
 1.若该项目的负责人有上传文件，可对上传的文件进行下载，效果如下（图39）所示：
 
-![img](./img\wps51.jpg) 
+![img](./img/wps51.jpg) 
 
 图39 下载文件并查看文件内容
 
@@ -480,9 +480,9 @@ com.wzq.da.chuang.report.service.impl包存放该微服务的业务逻辑接口�
 
 该功能为用户提供查看该项目详情功能的服务具体使用步骤如下：
 
-1.用户点击![img](./img\wps52.jpg)按钮查看项目详情（图40）：
+1.用户点击![img](./img/wps52.jpg)按钮查看项目详情（图40）：
 
-![img](./img\wps53.jpg) 
+![img](./img/wps53.jpg) 
 
 图40 查看中期报告详情
 
@@ -492,11 +492,11 @@ com.wzq.da.chuang.report.service.impl包存放该微服务的业务逻辑接口�
 
 1.在该界面中点击审核按钮，可对该中期报告进行审核认可，其中可输入评语，之后点击通过/退回按钮即可提交认可（图41），认可后可在中期报告详情中查看评语（图42），效果如下图所示：
 
-![img](./img\wps54.jpg) 
+![img](./img/wps54.jpg) 
 
 图41 大创管理员中期报告认可界面
 
-![img](./img\wps55.jpg) 
+![img](./img/wps55.jpg) 
 
 图42 中期报告大创管理员的评语显示页面
 
@@ -506,13 +506,13 @@ com.wzq.da.chuang.report.service.impl包存放该微服务的业务逻辑接口�
 
 1.在该页面顶部有查找按钮，点击之后会弹出表单（图43），在对应的输入框中输入想查找的内容即可对所有已提交中期报告进行查找（支持模糊搜索），其中没有输入的内容则查找所有已提交的中期报告（图44），效果如下所示：
 
-![img](./img\wps56.jpg) 
+![img](./img/wps56.jpg) 
 
 图43 查找页面
 
  
 
-![img](./img\wps57.jpg) 
+![img](./img/wps57.jpg) 
 
 图44 查找结果页面
 
@@ -522,13 +522,13 @@ com.wzq.da.chuang.report.service.impl包存放该微服务的业务逻辑接口�
 
 1.在该页面中有指派专家按钮（单一指派）和批量指派按钮，点击按钮即可弹出对应的弹窗，效果如下图（图45，46）所示：
 
-![img](./img\wps58.jpg) 
+![img](./img/wps58.jpg) 
 
 图45 选择指派的专家页面（单一指派）
 
 
 
-![img](./img\wps59.jpg) 
+![img](./img/wps59.jpg) 
 
 图46 批量指派专家页面
 
@@ -536,13 +536,13 @@ com.wzq.da.chuang.report.service.impl包存放该微服务的业务逻辑接口�
 
 2.5.9 汇总报表功能
 
-1.在该页面中点击![img](./img\wps60.jpg)按钮即可汇总导出所有中期报告，并查看中期报告内容，效果如下图所示：
+1.在该页面中点击![img](./img/wps60.jpg)按钮即可汇总导出所有中期报告，并查看中期报告内容，效果如下图所示：
 
-![img](./img\wps61.jpg) 
+![img](./img/wps61.jpg) 
 
 图47 点击汇总报表按钮
 
-![img](./img\wps62.jpg) 
+![img](./img/wps62.jpg) 
 
 图48查看报表内容
 

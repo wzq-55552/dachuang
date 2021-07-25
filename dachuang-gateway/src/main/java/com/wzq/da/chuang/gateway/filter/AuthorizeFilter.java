@@ -14,7 +14,7 @@ import reactor.core.publisher.Mono;
 
 /**
  * Title：全局过滤器类
- * Description：
+ * Description：统一网关认证授权
  * @author WZQ
  * @version 1.0.0
  * @date 2020/3/10

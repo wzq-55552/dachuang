@@ -7,6 +7,8 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="dachuang-model" />
+        <module name="dachuang-gateway" />
+        <module name="dachuang-eureka" />
         <module name="dachuang-security" />
         <module name="dachuang-commons" />
         <module name="dachuang-m-report" />
@@ -18,7 +20,9 @@
       <module name="dachuang" target="1.8" />
       <module name="dachuang-commons" target="1.8" />
       <module name="dachuang-dependencies" target="1.5" />
+      <module name="dachuang-eureka" target="1.8" />
       <module name="dachuang-file" target="1.8" />
+      <module name="dachuang-gateway" target="1.8" />
       <module name="dachuang-m-report" target="1.8" />
       <module name="dachuang-model" target="1.8" />
       <module name="dachuang-security" target="1.8" />
@@ -28,7 +32,9 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="dachuang" options="-parameters" />
       <module name="dachuang-commons" options="-parameters" />
+      <module name="dachuang-eureka" options="-parameters" />
       <module name="dachuang-file" options="-parameters" />
+      <module name="dachuang-gateway" options="-parameters" />
       <module name="dachuang-m-report" options="-parameters" />
       <module name="dachuang-model" options="-parameters" />
       <module name="dachuang-security" options="-parameters" />
